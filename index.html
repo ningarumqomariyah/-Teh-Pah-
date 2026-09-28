@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEH PAH — Segarnya Teh, Cerita di Setiap Tegukan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #fefcf5;
+      color: #1e2b2f;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --telang-blue: #3a6ea5;
+      --telang-deep: #2a4e7a;
+      --ungu: #7b5e9b;
+      --rosella-red: #b33b3b;
+      --lemon: #f5d742;
+      --sereh-green: #6b8c5c;
+      --cream: #fefcf5;
+      --white: #ffffff;
+      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 20px 30px -10px rgba(0, 0, 0, 0.08);
+      --radius-card: 28px;
+      --radius-btn: 40px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: rgba(254, 252, 245, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--telang-blue);
+      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .logo i {
+      color: var(--lemon);
+      font-size: 1.8rem;
+      filter: drop-shadow(0 2px 4px rgba(245, 215, 66, 0.3));
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      font-weight: 600;
+      color: #2c3e3a;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      font-size: 1rem;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--telang-blue), var(--ungu));
+      border-radius: 3px;
+      transition: width 0.25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--telang-blue);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 40px 0 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 4.2rem;
+      line-height: 1.1;
+      color: var(--telang-deep);
+      margin-bottom: 16px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-content .slogan {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #3e5a4e;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-content .slogan i {
+      color: var(--lemon);
+      font-size: 1.8rem;
+    }
+
+    .btn-primary {
+      background: var(--telang-blue);
+      color: white;
+      padding: 16px 38px;
+      border-radius: var(--radius-btn);
+      font-weight: 700;
+      font-size: 1.15rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 12px 20px -10px rgba(58, 110, 165, 0.4);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary i {
+      transition: transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--telang-deep);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 25px -10px rgba(42, 78, 122, 0.5);
+    }
+
+    .btn-primary:hover i {
+      transform: translateX(5px);
+    }
+
+    .hero-visual {
+      background: linear-gradient(145deg, #eef7fd, #dae9f5);
+      border-radius: 48px;
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      border-radius: 24px;
+      display: block;
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-visual img:hover {
+      transform: scale(1.02);
+    }
+
+    .glass-label {
+      font-weight: 700;
+      color: var(--telang-deep);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(4px);
+      padding: 10px 24px;
+      border-radius: 50px;
+      margin-top: 16px;
+      font-size: 1.1rem;
+      border: 1px solid white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    /* SECTION TITLE */
+    .section-title {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-title h2 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: #1e2e2a;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .section-title .subhead {
+      color: #5f7470;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    /* BEST SELLER */
+    .bestseller-section {
+      padding: 20px 0 80px;
+    }
+
+    .best-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fcff 100%);
+      border-radius: 48px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      padding: 48px 56px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .best-card::before {
+      content: "★ BEST SELLER";
+      position: absolute;
+      top: 28px;
+      left: -38px;
+      background: var(--lemon);
+      color: #1e2b2f;
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 10px 48px;
+      transform: rotate(-35deg);
+      letter-spacing: 2px;
+      box-shadow: 0 6px 12px rgba(245, 215, 66, 0.4);
+    }
+
+    .best-visual {
+      flex: 0 0 240px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .best-visual img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 30px;
+      box-shadow: 0 25px 30px -12px rgba(42, 78, 122, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .best-visual img:hover {
+      transform: scale(1.03);
+    }
+
+    .best-content h3 {
+      font-size: 2.8rem;
+      color: var(--telang-deep);
+      margin-bottom: 12px;
+      letter-spacing: -0.03em;
+    }
+
+    .best-desc {
+      font-size: 1.15rem;
+      color: #3d5550;
+      margin-bottom: 24px;
+      line-height: 1.6;
+      max-width: 500px;
+    }
+
+    .ingredients {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .ingredient-tag {
+      background: #eaf1f9;
+      color: var(--telang-deep);
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ingredient-tag i {
+      color: var(--lemon);
+    }
+
+    .btn-order {
+      background: #1e2e2a;
+      color: white;
+      padding: 16px 36px;
+      border-radius: var(--radius-btn);
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-order:hover {
+      background: #0e1a17;
+      transform: translateY(-3px);
+      box-shadow: 0 18px 25px -10px rgba(0, 0, 0, 0.25);
+    }
+
+    /* MENU SECTION */
+    .menu-section {
+      background: #f9fbf8;
+      border-radius: 60px 60px 0 0;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: var(--radius-card);
+      padding: 24px 20px 24px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-visual {
+      height: 200px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: #f2f7f2;
+    }
+
+    .card-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .card-visual img {
+      transform: scale(1.05);
+    }
+
+    .product-card h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #16231f;
+      margin-bottom: 6px;
+    }
+
+    .product-card .price {
+      font-weight: 700;
+      color: var(--telang-blue);
+      font-size: 1.3rem;
+      margin: 8px 0 6px;
+    }
+
+    .product-card .desc {
+      font-size: 0.9rem;
+      color: #5b6d68;
+      margin-bottom: 8px;
+      line-height: 1.4;
+      flex-grow: 1;
+    }
+
+    .product-card .ingredients-mini {
+      font-size: 0.8rem;
+      color: #6f8b82;
+      margin-bottom: 16px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .card-btn {
+      background: transparent;
+      border: 1.5px solid #cddfd6;
+      padding: 10px 16px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #1e2e2a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+      cursor: pointer;
+      margin-top: 6px;
+      width: 100%;
+      text-decoration: none;
+    }
+
+    .card-btn i {
+      font-size: 0.85rem;
+      transition: transform 0.2s;
+    }
+
+    .card-btn:hover {
+      background: #1e2e2a;
+      border-color: #1e2e2a;
+      color: white;
+    }
+
+    .card-btn:hover i {
+      transform: translateX(4px);
+    }
+
+    /* ABOUT SECTION */
+    .about-section {
+      background: linear-gradient(120deg, #f4faf6, #fefcf5);
+      padding: 80px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: #1e2e2a;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .about-text p {
+      font-size: 1.15rem;
+      color: #3e5550;
+      margin-bottom: 22px;
+      line-height: 1.7;
+    }
+
+    .about-badge {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .badge-item {
+      background: white;
+      padding: 10px 22px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #1e2e2a;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(0, 0, 0, 0.02);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-item i {
+      color: var(--sereh-green);
+    }
+
+    .about-illustration {
+      background: #e3f0e9;
+      border-radius: 48px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .about-illustration span {
+      font-size: 3rem;
+      filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.05));
+      transition: transform 0.2s;
+    }
+
+    .about-illustration span:hover {
+      transform: scale(1.15) rotate(5deg);
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #1f2c27;
+      color: #e4efe9;
+      padding: 56px 0 32px;
+      border-radius: 60px 60px 0 0;
+      margin-top: 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand .logo {
+      color: #c7e0d4;
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand .logo i {
+      color: var(--lemon);
+    }
+
+    .footer-brand p {
+      font-size: 1rem;
+      color: #b4cbc0;
+      margin-bottom: 20px;
+      max-width: 280px;
+    }
+
+    .footer h5 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    .footer ul {
+      list-style: none;
+    }
+
+    .footer ul li {
+      margin-bottom: 12px;
+      color: #b4cbc0;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.2s;
+    }
+
+    .footer ul li i {
+      width: 20px;
+      color: var(--lemon);
+    }
+
+    .footer ul li:hover {
+      color: white;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .social-icons a {
+      background: rgba(255, 255, 255, 0.06);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #d4e6dd;
+      font-size: 1.2rem;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      background: var(--lemon);
+      color: #1f2c27;
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: #99b3a8;
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-content h1 {
+        font-size: 3.4rem;
+      }
+
+      .best-card {
+        padding: 36px 32px;
+        gap: 28px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-content .slogan {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        max-width: 360px;
+        margin: 0 auto;
+      }
+
+      .best-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 24px;
+      }
+
+      .best-card::before {
+        top: 15px;
+        left: -42px;
+        font-size: 0.75rem;
+      }
+
+      .best-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .ingredients {
+        justify-content: center;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .about-badge {
+        justify-content: center;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 32px;
+      }
+
+      .footer-brand p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+
+      .footer ul li {
+        justify-content: center;
+      }
+
+      .navbar .container {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        gap: 24px;
+      }
+
+      .section-title h2 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content h1 {
+        font-size: 2.7rem;
+      }
+
+      .hero-content .slogan {
+        font-size: 1.2rem;
+      }
+
+      .btn-primary, .btn-order {
+        padding: 14px 28px;
+        font-size: 1rem;
+      }
+
+      .best-content h3 {
+        font-size: 2.2rem;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">
+        <i class="fas fa-leaf"></i> TEH PAH
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#bestseller">Best Seller</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>TEH PAH</h1>
+        <div class="slogan">
+          <i class="fas fa-seedling"></i> Segarnya Teh, Cerita di Setiap Tegukan
+        </div>
+        <a href="#menu" class="btn-primary">
+          Lihat Menu <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="hero-visual">
+        <img src="https://i.ibb.co.com/6J5Q8ZP/telang-original.jpg" alt="Telang Original - TEH PAH">
+        <div class="glass-label">Telang Original</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEST SELLER -->
+  <section id="bestseller" class="bestseller-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Best Seller</h2>
+        <div class="subhead">Paling dicari, paling segar</div>
+      </div>
+      <div class="best-card">
+        <div class="best-visual">
+          <img src="https://i.ibb.co.com/6J5Q8ZP/telang-original.jpg" alt="Telang Original - Best Seller TEH PAH">
+        </div>
+        <div class="best-content">
+          <h3>Telang Original</h3>
+          <p class="best-desc">
+            Bunga telang segar dipadu madu, sereh, dan lemon. Warna biru alami dengan sentuhan kuning lemon, 
+            menghadirkan sensasi segar dan menyehatkan.
+          </p>
+          <div class="ingredients">
+            <span class="ingredient-tag"><i class="fas fa-flower"></i> Bunga Telang</span>
+            <span class="ingredient-tag"><i class="fas fa-jar"></i> Madu</span>
+            <span class="ingredient-tag"><i class="fas fa-wheat"></i> Sereh</span>
+            <span class="ingredient-tag"><i class="fas fa-lemon"></i> Lemon</span>
+          </div>
+          <a href="https://wa.me/6282139770008" class="btn-order" target="_blank">Pesan Sekarang <i class="fas fa-shopping-bag"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Menu Kami</h2>
+        <div class="subhead">Empat varian segar untuk setiap suasana</div>
+      </div>
+      <div class="menu-grid">
+        <!-- Telang Original -->
+        <div class="product-card">
+          <div class="card-visual">
+            <img src="https://i.ibb.co.com/6J5Q8ZP/telang-original.jpg" alt="Telang Original">
+          </div>
+          <h4>Telang Original</h4>
+          <div class="desc">Bunga telang, madu, sereh, lemon. Segar alami.</div>
+          <div class="ingredients-mini"><i class="fas fa-flower"></i> Telang · Madu · Sereh · Lemon</div>
+          <div class="price">Rp 7.000</div>
+          <a href="https://wa.me/6282139770008?text=Halo%20TEH%20PAH,%20saya%20mau%20pesan%20Telang%20Original" class="card-btn" target="_blank">Pesan <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <!-- Telang Sparkling -->
+        <div class="product-card">
+          <div class="card-visual">
+            <img src="https://i.ibb.co.com/6J5Q8ZP/telang-sparkling.jpg" alt="Telang Sparkling">
+          </div>
+          <h4>Telang Sparkling</h4>
+          <div class="desc">Bunga telang, sereh, soda, sirup coco pandan.</div>
+          <div class="ingredients-mini"><i class="fas fa-wine-bottle"></i> Telang · Soda · Coco Pandan</div>
+          <div class="price">Rp 8.000</div>
+          <a href="https://wa.me/6282139770008?text=Halo%20TEH%20PAH,%20saya%20mau%20pesan%20Telang%20Sparkling" class="card-btn" target="_blank">Pesan <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <!-- Rosella Original -->
+        <div class="product-card">
+          <div class="card-visual">
+            <img src="https://i.ibb.co.com/6J5Q8ZP/rosella-original.jpg" alt="Rosella Original">
+          </div>
+          <h4>Rosella Original</h4>
+          <div class="desc">Rosella, madu, sereh, lemon. Merah elegan.</div>
+          <div class="ingredients-mini"><i class="fas fa-flower"></i> Rosella · Madu · Sereh · Lemon</div>
+          <div class="price">Rp 7.000</div>
+          <a href="https://wa.me/6282139770008?text=Halo%20TEH%20PAH,%20saya%20mau%20pesan%20Rosella%20Original" class="card-btn" target="_blank">Pesan <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <!-- Rosella Sparkling -->
+        <div class="product-card">
+          <div class="card-visual">
+            <img src="https://i.ibb.co.com/6J5Q8ZP/rosella-sparkling.jpg" alt="Rosella Sparkling">
+          </div>
+          <h4>Rosella Sparkling</h4>
+          <div class="desc">Sereh, soda, sirup. Segar kekinian.</div>
+          <div class="ingredients-mini"><i class="fas fa-wine-bottle"></i> Sereh · Soda · Sirup</div>
+          <div class="price">Rp 8.000</div>
+          <a href="https://wa.me/6282139770008?text=Halo%20TEH%20PAH,%20saya%20mau%20pesan%20Rosella%20Sparkling" class="card-btn" target="_blank">Pesan <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <div class="container about-grid">
+      <div class="about-text">
+        <h2>Tentang TEH PAH</h2>
+        <p>
+          TEH PAH memadukan bahan-bahan alami seperti bunga telang, rosella, sereh, lemon, dan madu dengan tambahan soda serta sirup untuk menghasilkan minuman yang segar dan kekinian. 
+          Setiap tegukan menghadirkan keseimbangan rasa dan manfaat alami.
+        </p>
+        <p>
+          Kami percaya bahwa minuman sehat bisa tetap enak dan stylish. Cocok untuk anak muda yang aktif dan peduli kesehatan.
+        </p>
+        <div class="about-badge">
+          <div class="badge-item"><i class="fas fa-leaf"></i> 100% Alami</div>
+          <div class="badge-item"><i class="fas fa-heart"></i> Sehat & Segar</div>
+          <div class="badge-item"><i class="fas fa-star"></i> Kekinian</div>
+        </div>
+      </div>
+      <div class="about-illustration">
+        <span>🌸</span>
+        <span>🌺</span>
+        <span>🍋</span>
+        <span>🌿</span>
+        <span>🫧</span>
+        <span>🍯</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><i class="fas fa-leaf"></i> TEH PAH</div>
+          <p>Segarnya Teh, Cerita di Setiap Tegukan</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div>
+          <h5>Kontak</h5>
+          <ul>
+            <li><i class="fas fa-phone-alt"></i> 082139770008</li>
+            <li><i class="fas fa-envelope"></i> hello@tehpah.id</li>
+            <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+          </ul>
+        </div>
+        <div>
+          <h5>Jam Buka</h5>
+          <ul>
+            <li><i class="fas fa-clock"></i> Senin - Jumat: 08.00 - 20.00</li>
+            <li><i class="fas fa-clock"></i> Sabtu - Minggu: 09.00 - 21.00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 TEH PAH. All rights reserved. Segar, Alami, Kekinian.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
